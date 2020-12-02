@@ -1,0 +1,63 @@
+
+<section class="hero is-primary is-fullheight">
+  <div class="hero-body">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-5-tablet is-4-desktop is-3-widescreen">
+          <% if @user.errors.any? %>
+            <div class="alert alert-danger" role="alert">
+              <ul>
+              <% @user.errors.full_messages.each do |msg| %>
+                <li><%= msg %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+          <%= form_for @user,  html: {class: "box"} do |f| %>
+            <div class="field">
+              <label for="" class="label"><%= f.label :email %></label>
+              <div class="control has-icons-left">
+                <%= f.text_field :email, class:"input", placeholder: "e.g. example@mail.com", required: true %>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="" class="label"><%= f.label :username %></label>
+              <div class="control has-icons-left">
+                <%= f.text_field :username, class:"input", placeholder: "e.g. example123", required: true %>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-envelope"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="" class="label"><%= f.label :password %></label>
+              <div class="control has-icons-left">
+                <%= f.password_field :password, class:"input", placeholder: "*******", required: true %>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+            <div class="field">
+              <label for="" class="label"><%= f.label :password_confirmation %></label>
+              <div class="control has-icons-left">
+                <%= f.password_field :password_confirmation, class:"input", placeholder: "*******", required: true %>
+                <span class="icon is-small is-left">
+                  <i class="fa fa-lock"></i>
+                </span>
+              </div>
+            </div>
+            
+            <div class="field">
+              <%= f.submit "Sign Up", class: "button is-success" %>
+            </div>
+            <p>Have a Account? <%= link_to "Log in!", login_path %></p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

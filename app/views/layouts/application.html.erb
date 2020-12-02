@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ChannelApp</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <% if flash[:notice] %>
+      <div class="notification is-primary global-notification">
+        <p class="notice"><%= notice %></p>     
+      </div>
+    <% end %>
+
+    <% if flash[:alert] %>
+      <div class="notification is-danger global-notification">
+        <p class="alert"><%= alert %></p>     
+      </div>
+    <% end %>
+    <nav class=" navbar is-info">
+      <div class="navbar-brand">
+        <%= link_to root_path, class: "navbar-item" do %>
+          <h1 class="title is-5">ChannelApp</h1>
+        <% end %>
+        <div class="navbar-burger burger" data-taget="navbarExample">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+
+      <div id="navbarExample" class="navbar-menu">
+        <div class="navbar-end">
+          <div class="field is-grouped">
+            <p class="control">
+              <% if current_user %>
+                <%= link_to(current_user.username, edit_user_path(current_user), class: "button is-info") %>  
+              <% end %>
+            </p>
+            <p class="control">
+              <% if current_user %>
+              
+              <%= link_to('Logout', logout_path, class: "button is-info") %>        
+              
+            <% else %>
+              
+              <%= link_to('Login', login_path, class: "button is-info") %>  
+              
+            <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="section">
+      <div class="container">
+        <div class="columns">
+          <div class="column">
+            <nav class="panel">
+              <p class="panel-heading">Profile</p>
+              <div class="panel-block">
+                <article class="media">
+                  <div class="media-left">
+                    <figure class="image is64x64">
+                      <%= gravatar_image_tag(current_user.email, size: 64, alt: current_user.username) %>
+                    </figure>
+                  </div>
+                  <div class="media-content">
+                    <div class="content">
+                      <p>
+                        <strong><%= current_user.username %></strong>
+                      </p>
+                    </div>
+                  </div>
+                </article>
+              </div>
+              <div class="panel-block">
+                <div class="level is-mobile">
+                  <div class="level-item has-centered-text">
+                    <div>
+                      <p class="heading"><h1><%= link_to "Browse Shows", shows_path %></h1></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="panel-block">
+                <div class="level is-mobile">
+                  <div class="level-item has-centered-text">
+                    <div>
+                      <p class="heading"><h1><%= link_to "Add New Show", new_show_path, :method => "get", class: "btn btn-info btn-block" %></h1></p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </nav>
+          </div>
+          <%= yield :content %>
+          <div class="column">
+            <nav class="panel">
+              <p class="panel-heading">
+                Advertisement
+              </p>
+            </nav>
+          
+            <div class="panel-block">
+              <article class="media">
+                <div class="media-left">
+                  
+                </div>
+                <div class="media-content">
+                  <div class="content">
+                    <p>
+                      
+                    </p>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>    
+      </div>
+    </section>
+    <%= yield %>
+  </body>
+</html>
