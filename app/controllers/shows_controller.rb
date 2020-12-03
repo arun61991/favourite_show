@@ -56,7 +56,7 @@ class ShowsController < ApplicationController
 
   private
   def show_params
-    params.require(:show).permit( :title, :description, :channel_id, :day, :time, :current_season, :created_by, genre_ids:[], genres_attributes:[:name], channel_attributes:[:name])
+    params.require(:show).permit( :title, :description, :channel_id, :day, :current_season, :created_by, genre_ids:[], genres_attributes:[:name], channel_attributes:[:name])
   end
 
   def set_show

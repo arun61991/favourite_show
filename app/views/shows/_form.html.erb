@@ -49,14 +49,7 @@
         <div class="field">
           <%= f.label :day, class: "label" %>
           <div class="control">            
-            <%= f.text_field :day, class: "input", placeholder: "Enter Day" %><br>            
-          </div>
-        </div>
-
-        <div class="field">
-          <%= f.label :time, class: "label" %>
-          <div class="control">            
-            <%= f.text_field :time, class: "input", placeholder: "Enter Time" %><br>            
+            <%= f.text_field :day, class: "input", id: "datetimepicker",placeholder: "Enter Day" %>
           </div>
         </div>
 
@@ -81,3 +74,6 @@
     </div>
   </article>
 </div>
+<script>
+  $('#datetimepicker').datetimepicker();
+</script>

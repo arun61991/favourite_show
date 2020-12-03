@@ -17,6 +17,7 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'bulma-rails', '~> 0.9.1'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap'
+gem 'jquery-datetimepicker-rails'
 gem 'jquery-rails'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'  
