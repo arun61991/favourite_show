@@ -30,7 +30,7 @@
               <strong><%= link_to show.title, show_path(show) %></strong>
               <small><%= show.channel.name %></small>
               <p><small><%= show.description %></small></p>
-              <p><%= show.day.to_datetime.strftime("%a %d.%m.%Y") %> - <%= show.day.to_datetime.strftime("%R") %> </p>
+              <p><%= show.day.to_datetime.strftime("%a %d.%m.%Y") %> - <%= show.day.to_datetime.strftime("%I:%M %p") %> </p>
             </div>
           </div>
           <nav class="level">
