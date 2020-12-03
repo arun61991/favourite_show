@@ -3,15 +3,13 @@ class FavoriteShowsController < ApplicationController
     
     def create
       if Favorite.create(favorited: @show, user: current_user)
-        redirect_to shows_path, notice: 'Show has been favorited'
-      else
-        redirect_to shows_path, alert: 'Something went wrong...'
+        redirect_to shows_path, notice: 'Show has been favorited...!'
       end
     end
     
     def destroy
       Favorite.where(favorited_id: @show.id, user_id: current_user.id).first.destroy
-      redirect_to shows_path, notice: 'Show is no longer in favorites'
+      redirect_to shows_path, notice: 'Show has been removed from favorites...!'
     end
     
     private

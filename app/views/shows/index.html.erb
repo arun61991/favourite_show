@@ -4,9 +4,14 @@
     <article class="media box">
       <div class="media-content">
         <%= form_tag("/search", method: "get") do %>
-          <%= label_tag :query, "Search by Title:" %>
-          <%= text_field_tag :query, "", class: "input" %>
-          <%= submit_tag "Search", class: "button is-link" %>
+          <div class="field has-addons">
+            <div class="control">
+              <%= text_field_tag :query, "", class: "input", placeholder: "Find a Show" %>
+            </div>
+            <div class="control">
+              <%= submit_tag "Search", class: "button is-info" %>
+            </div>
+          </div>
         <% end %>
       </div>
     </article>

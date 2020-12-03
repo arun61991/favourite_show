@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  
+
   has_many :watchlists
   has_many :favorites
   has_many :favorite_shows, through: :favorites, source: :favorited, source_type: 'Show'
